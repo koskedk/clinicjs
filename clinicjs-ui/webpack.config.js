@@ -11,5 +11,17 @@ module.exports = (webpackConfigEnv, argv) => {
 
   return merge(defaultConfig, {
     // modify the webpack config however you'd like to by adding to this object
+    module: {
+      rules: [
+        // {
+        //   test: /\.(sa|sc|c)ss$/,
+        //   use: ["style-loader", "css-loader", "sass-loader"],
+        // },
+        {
+          test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+          use: ["url-loader?limit=100000"],
+        },
+      ],
+    },
   });
 };
