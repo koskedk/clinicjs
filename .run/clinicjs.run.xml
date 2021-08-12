@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="clinicjs" type="CompoundRunConfigurationType">
+    <toRun name="start root" type="js.build_tools.npm" />
+    <toRun name="start ui" type="js.build_tools.npm" />
+    <toRun name="start navbar" type="js.build_tools.npm" />
+    <toRun name="start dashboard" type="js.build_tools.npm" />
+    <toRun name="start pharmacy" type="js.build_tools.npm" />
+    <toRun name="start billing" type="js.build_tools.npm" />
+    <toRun name="start consultation" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>

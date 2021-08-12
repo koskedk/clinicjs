@@ -18,8 +18,20 @@
   -->
 
   <main>
+    <nav>
+      <application name="@clinicjs/navbar"></application>
+    </nav>
     <route default>
-      <application name="@single-spa/welcome"></application>
+      <application name="@clinicjs/dashboard"></application>
+    </route>
+    <route path="pharmacy">
+      <application name="@clinicjs/pharmacy"></application>
+    </route>
+    <route path="billing">
+      <application name="@clinicjs/billing"></application>
+    </route>
+    <route path="consultation">
+      <application name="@clinicjs/consultation"></application>
     </route>
   </main>
 </single-spa-router>
