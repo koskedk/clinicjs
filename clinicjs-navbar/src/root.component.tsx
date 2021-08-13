@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { TopNav } from "@clinicjs/ui";
 import { links } from "./root-helper";
-import { InputText } from "./clinicjs-navbar";
 
 export default function Root(props) {
   const [activelink, setActiveLink] = useState("/");
@@ -14,19 +14,11 @@ export default function Root(props) {
   }, []);
 
   return (
-    <div className="topnav">
-      <InputText value="dddemo" />
-      {links.map((link, index) => {
-        return (
-          <a
-            className={activelink === link.href ? "active" : ""}
-            href={link.href}
-            key={index}
-          >
-            {link.name}
-          </a>
-        );
-      })}
-    </div>
+    <TopNav
+      title={" liveCLINIC"}
+      tenant={"Nairobi West Clinic"}
+      links={links}
+      activelink={activelink}
+    ></TopNav>
   );
 }
