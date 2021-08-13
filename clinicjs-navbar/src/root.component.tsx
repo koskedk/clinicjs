@@ -13,12 +13,16 @@ export default function Root(props) {
     }
   }, []);
 
+  const getActiveLink = (href) => {
+    return activelink === href ? "active" : "";
+  };
+
   return (
     <TopNav
       title={" liveCLINIC"}
       tenant={"Nairobi West Clinic"}
       links={links}
-      activelink={activelink}
+      setActiveLink={getActiveLink}
     ></TopNav>
   );
 }

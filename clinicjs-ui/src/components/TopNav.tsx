@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 interface IProps {
   title: string;
   tenant: string;
-  activelink: string;
+  setActiveLink(href: string): string;
   links: [
     {
       href: string;
@@ -29,7 +29,7 @@ export default function TopNav(props: IProps) {
         {props.links.map((link, index) => {
           return (
             <a
-              className={props.activelink === link.href ? "active" : ""}
+              className={props.setActiveLink(link.href)}
               href={link.href}
               key={index}
             >
