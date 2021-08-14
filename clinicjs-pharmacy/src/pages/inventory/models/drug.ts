@@ -1,6 +1,6 @@
 export interface Drug {
-  id?: String;
-  code?: String;
-  name?: String;
-  isStocked?: Boolean;
+  id?: string;
+  code?: string;
+  name?: string;
+  isStocked?: boolean;
 }

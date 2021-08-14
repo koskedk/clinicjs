@@ -16,11 +16,14 @@ class InventoryService {
     }
   }
 
-  async newStock(data: StockDto) {
-    await API.post("/NewStock", data);
+  async newStock(data: StockDto[]) {
+    await API.post("/Drugs/NewStock", data);
+  }
+  async adjustStock(data: StockDto) {
+    await API.post("/Drugs/AdjustStock", data);
   }
   async fullDispense(orderId: String) {
-    await API.post("/FullDispense", {}, { params: { orderId } });
+    await API.post("/Drugs/FullDispense", {}, { params: { orderId } });
   }
 }
 
