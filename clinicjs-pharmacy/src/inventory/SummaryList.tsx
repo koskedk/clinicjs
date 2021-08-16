@@ -1,35 +1,21 @@
 import React, { useState } from "react";
-import { SummaryItem } from "./SummaryItem";
 import {DrugStats} from "./models/drug-stats";
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
 
 interface Props {
   drugs?: DrugStats[];
 }
 
 export const SummaryList = (props: Props) => {
-  const [show, setShow] = useState(false);
-  const [id, setId] = useState("");
-
-  const ads = (id: string) => {
-    setShow(!show);
-    setId(id);
-    // eslint-disable-next-line no-console
-    console.log(`${id}  ${show}`);
-  };
-
   return (
-    <ul>
-      {props.drugs.map((d, index) => {
-        return (
-          <SummaryItem
-            show={show && d.id === id}
-            {...d}
-            key={index}
-            onAdjust={ads}
-          />
-        );
-      })}
-    </ul>
+      <DataTable value={props.drugs}>
+        <Column field="code" header="Code"/>
+        <Column field="name" header="Name"></Column>
+        <Column field="quantityInStock" header="Quantity"></Column>
+        <Column field="totalIn" header="In"></Column>
+        <Column field="totalOut" header="Out"></Column>
+        <Column field="id" header="id"></Column>
+      </DataTable>
   );
 };
-

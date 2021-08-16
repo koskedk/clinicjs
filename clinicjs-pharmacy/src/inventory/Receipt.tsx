@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useMutation } from "react-query";
 import service from "./services/inventory.service";
 import { RecieptDto } from "./models/reciept.dto";
+import {InputText} from "primereact/inputtext";
+import {Button} from "primereact/button";
 
 interface Props {
     id?: string;
@@ -28,29 +30,30 @@ export const Receipt=(props: Props)=> {
     };
 
     return (
+
         <div>
             <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    id="drugId"
-                    name="drugId"
-                    onChange={handleChange}
-                />
-                <label htmlFor="batchNo">BatchNo:</label>
-                <input
-                    type="text"
-                    id="batchNo"
-                    name="batchNo"
-                    onChange={handleChange}
-                />
-                <label htmlFor="quantity">Quantity:</label>
-                <input
-                    type="text"
-                    id="quantity"
-                    name="quantity"
-                    onChange={handleChange}
-                />
-                <input type="submit" value="Submit" />
+            <div className="p-field p-grid">
+                <label htmlFor="drugId" className="p-col-fixed" style={{width:'100px'}}>drugId</label>
+                <div className="p-col">
+                    <InputText id="drugId" type="text"    name="drugId" onChange={handleChange}/>
+                </div>
+            </div>
+            <div className="p-field p-grid">
+                <label htmlFor="batchNo" className="p-col-fixed" style={{width:'100px'}}>batchNo</label>
+                <div className="p-col">
+                    <InputText id="batchNo" type="text"  name="batchNo" onChange={handleChange}/>
+                </div>
+            </div>
+            <div className="p-field p-grid">
+                <label htmlFor="quantity" className="p-col-fixed" style={{width:'100px'}}>quantity</label>
+                <div className="p-col">
+                    <InputText id="quantity" type="text"  name="quantity" onChange={handleChange}/>
+                </div>
+            </div>
+                <div className="p-field p-grid">
+                    <Button  type="submit" label="Submit" />
+                </div>
             </form>
         </div>
     );
