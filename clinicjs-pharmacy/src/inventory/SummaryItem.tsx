@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import { Drug } from "./models/drug";
-import { StockReceipt } from "./StockReceipt";
+import {DrugStats} from "./models/drug-stats";
 
-interface Props extends Drug {
+interface Props extends DrugStats {
   show: boolean;
   onAdjust(id: string): void;
 }
 
-export const ProductItem = (props: Props) => {
+export const SummaryItem = (props: Props) => {
   return (
     <div>
       <li>
-        {props.code} | {props.name} | {props.id}
-        <input
+        {props.name} | {props.totalIn} | {props.id}
+      </li>
+    </div>
+  );
+};
+/*
+ <input
           type="button"
           value={props.show ? "Cancel" : "Adjust"}
           onClick={() => props.onAdjust(props.id)}
@@ -20,7 +24,4 @@ export const ProductItem = (props: Props) => {
         <div style={{ display: props.show ? "block" : "none" }}>
           <StockReceipt id={props.id} />
         </div>
-      </li>
-    </div>
-  );
-};
+ */

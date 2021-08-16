@@ -1,10 +1,11 @@
-import API from "../../../common/api";
-import { StockDto } from "../models/stock.dto";
+import API from "../../common/api";
+import { RecieptDto } from "../models/reciept.dto";
 
 class InventoryService {
-  async getDrugs() {
+
+  async getInventorySummary() {
     try {
-      const { data } = await API.get("/Drugs");
+      const { data } = await API.get("/Inventory");
       return data;
     } catch (e) {
       if (e.response) {
@@ -16,10 +17,10 @@ class InventoryService {
     }
   }
 
-  async newStock(data: StockDto[]) {
+  async newStock(data: RecieptDto[]) {
     await API.post("/Drugs/NewStock", data);
   }
-  async adjustStock(data: StockDto) {
+  async adjustStock(data: RecieptDto) {
     await API.post("/Drugs/AdjustStock", data);
   }
   async fullDispense(orderId: String) {

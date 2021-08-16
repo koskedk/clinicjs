@@ -1,13 +1,13 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { Products } from "./pages/inventory/Products";
+import {AppHome} from "./home/AppHome";
 
 const queryClient = new QueryClient();
 
 export default function Root(props) {
   return (
     <QueryClientProvider client={queryClient}>
-      <Products />
+      <AppHome />
     </QueryClientProvider>
   );
 }

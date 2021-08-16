@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Drug } from "./models/drug";
-import { ProductItem } from "./ProductItem";
+import { SummaryItem } from "./SummaryItem";
+import {DrugStats} from "./models/drug-stats";
 
 interface Props {
-  drugs?: Drug[];
+  drugs?: DrugStats[];
 }
 
-export const ProductList = (props: Props) => {
+export const SummaryList = (props: Props) => {
   const [show, setShow] = useState(false);
   const [id, setId] = useState("");
 
@@ -21,7 +21,7 @@ export const ProductList = (props: Props) => {
     <ul>
       {props.drugs.map((d, index) => {
         return (
-          <ProductItem
+          <SummaryItem
             show={show && d.id === id}
             {...d}
             key={index}
@@ -32,3 +32,4 @@ export const ProductList = (props: Props) => {
     </ul>
   );
 };
+
