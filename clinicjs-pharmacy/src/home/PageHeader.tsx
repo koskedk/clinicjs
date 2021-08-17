@@ -11,6 +11,7 @@ import {Summary} from "../inventory/Summary";
 import {Receipt} from "../inventory/Receipt";
 import {History} from "../orders/History";
 import {Active} from "../orders/Active";
+import { Dispense } from "../orders/Dispense";
 
 export const PageHeader = () => {
     const [activelink, setActiveLink] = useState("/pharmacy");
@@ -26,9 +27,9 @@ export const PageHeader = () => {
     }, []);
 
     const checkActive = (href) => {
-        console.log('active',activelink)
-        console.log('checkref',href)
-        console.log('path',window.location.pathname)
+        console.log('active', activelink)
+        console.log('checkref', href)
+        console.log('path', window.location.pathname)
         return activelink === href ? "active" : "";
     };
 
@@ -42,22 +43,22 @@ export const PageHeader = () => {
                 ></PageNav>
                 <Switch>
                     <Route path="/pharmacy/history">
-                        <History />
+                        <History/>
                     </Route>
                     <Route path="/pharmacy/summary">
-                        <Summary />
+                        <Summary/>
                     </Route>
                     <Route path="/pharmacy/receipt">
-                        <Receipt />
+                        <Receipt/>
+                    </Route>
+                    <Route path="/pharmacy/dispense/:orderId">
+                        <Dispense/>
                     </Route>
                     <Route path="/pharmacy">
-                        <Active />
+                        <Active/>
                     </Route>
                 </Switch>
             </div>
         </Router>
-
-
-
     );
 };

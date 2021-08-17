@@ -5,7 +5,7 @@ class InventoryService {
 
   async getInventorySummary() {
     try {
-      const { data } = await API.get("/Inventory");
+      const { data } = await API.get("/Inventory/Summary");
       return data;
     } catch (e) {
       if (e.response) {
@@ -16,16 +16,15 @@ class InventoryService {
       throw e;
     }
   }
+  async receiveDrug(data: RecieptDto) {
+    await API.post("/Inventory/Receipt", data);
+  }
 
-  async newStock(data: RecieptDto[]) {
-    await API.post("/Drugs/NewStock", data);
+  async receiveDrugBatch(data: RecieptDto[]) {
+    await API.post("/Inventory/Receipt/Batch", data);
   }
-  async adjustStock(data: RecieptDto) {
-    await API.post("/Drugs/AdjustStock", data);
-  }
-  async fullDispense(orderId: String) {
-    await API.post("/Drugs/FullDispense", {}, { params: { orderId } });
-  }
+
+
 }
 
 export default new InventoryService();

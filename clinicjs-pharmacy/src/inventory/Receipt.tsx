@@ -12,7 +12,7 @@ interface Props {
 export const Receipt=(props: Props)=> {
     const [stock, setStock] = useState<RecieptDto>({});
 
-    const mutation = useMutation(() => service.adjustStock(stock), {
+    const mutation = useMutation(() => service.receiveDrug(stock), {
         onError: (err, variables, context) => {
             // eslint-disable-next-line no-console
             console.log(err);
