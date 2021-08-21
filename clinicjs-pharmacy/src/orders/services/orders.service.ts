@@ -16,9 +16,36 @@ class OrdersService {
     }
   }
 
+  async getHistory() {
+    try {
+      const {data} = await API.get("/Orders/History");
+      return data;
+    } catch (e) {
+      if (e.response) {
+        // eslint-disable-next-line no-console
+        console.log(e);
+        throw new Error(e.response.data);
+      }
+      throw e;
+    }
+  }
+
   async getActiveOrder(orderId: string) {
     try {
       const {data} = await API.get(`/Orders/Active/Order/${orderId}`);
+      return data;
+    } catch (e) {
+      if (e.response) {
+        // eslint-disable-next-line no-console
+        console.log(e);
+        throw new Error(e.response.data);
+      }
+      throw e;
+    }
+  }
+  async getHistoryOrder(orderId: string) {
+    try {
+      const {data} = await API.get(`/Orders/History/Order/${orderId}`);
       return data;
     } catch (e) {
       if (e.response) {
